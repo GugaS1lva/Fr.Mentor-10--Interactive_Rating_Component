@@ -1,6 +1,5 @@
 export const myAPI = [
     {
-        "id": 1,
         "title": "Work",
         "timeframes": {
             "daily": {
@@ -18,7 +17,6 @@ export const myAPI = [
         }
     },
     {
-        "id": 2,
         "title": "Play",
         "timeframes": {
             "daily": {
@@ -36,7 +34,6 @@ export const myAPI = [
         }
     },
     {
-        "id": 3,
         "title": "Study",
         "timeframes": {
             "daily": {
@@ -54,7 +51,6 @@ export const myAPI = [
         }
     },
     {
-        "id": 4,
         "title": "Exercise",
         "timeframes": {
             "daily": {
@@ -72,7 +68,6 @@ export const myAPI = [
         }
     },
     {
-        "id": 5,
         "title": "Social",
         "timeframes": {
             "daily": {
@@ -90,7 +85,6 @@ export const myAPI = [
         }
     },
     {
-        "id": 6,
         "title": "Self Care",
         "timeframes": {
             "daily": {
@@ -109,27 +103,27 @@ export const myAPI = [
     }
 ]
 
-export const titles = myAPI.map(item => {
-    return <p key={item.id}>{item.title}</p>
+export const titles = myAPI.map((item, index) => {
+    return <p key={index}>{item.title}</p>
 })
 
-export const currentDaily = myAPI.map(item => {
-    return <p key={item.id}>{item.timeframes.daily.current}</p>
+export const currentDaily = myAPI.map((item, index) => {
+    return <p key={index}>{item.timeframes.daily.current}</p>
 })
-export const previousDaily = myAPI.map(item => {
-    return <p key={item.id}>{item.timeframes.daily.previous}</p>
-})
-
-export const currentWeekly = myAPI.map(item => {
-    return <p key={item.id}>{item.timeframes.weekly.current}</p>
-})
-export const previousWeekly = myAPI.map(item => {
-    return <p key={item.id}>{item.timeframes.weekly.previous}</p>
+export const previousDaily = myAPI.map((item, index) => {
+    return <p key={index}>{item.timeframes.daily.previous}</p>
 })
 
-export const currentMonthly = myAPI.map(item => {
-    return <p key={item.id}>{item.timeframes.monthly.current}</p>
+export const currentWeekly = myAPI.map((item, index) => {
+    return <p key={index}>{item.timeframes.weekly.current}</p>
 })
-export const previousMonthly = myAPI.map(item => {
-    return <p key={item.id}>{item.timeframes.monthly.previous}</p>
+export const previousWeekly = myAPI.map((item, index) => {
+    return <p key={index}>{item.timeframes.weekly.previous}</p>
+})
+
+export const currentMonthly = myAPI.map((item, index) => {
+    return <p key={index}>{item.timeframes.monthly.current}</p>
+})
+export const previousMonthly = myAPI.map((item, index) => {
+    return <p key={index}>{item.timeframes.monthly.previous}</p>
 })
