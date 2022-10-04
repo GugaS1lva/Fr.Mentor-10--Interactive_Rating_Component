@@ -11,20 +11,24 @@ import { currentMonthly } from '../../../pages/api'
 import { previousMonthly } from '../../../pages/api'
 
 const ProfileCard = () => {
-    const [currentData, setCurrentData] = useState('')
-    const [previousData, setPreviousData] = useState('')
+    const [currentData, setCurrentData] = useState(currentWeekly)
+    const [previousData, setPreviousData] = useState(previousWeekly)
+    const [view, setView] = useState('weekly')
 
     const switchToDailyView = () => {
         setCurrentData(currentDaily)
         setPreviousData(previousDaily)
+        setView('daily')
     }
     const switchToWeeklyView = () => {
         setCurrentData(currentWeekly)
         setPreviousData(previousWeekly)
+        setView('weekly')
     }
     const switchToMonthlyView = () => {
         setCurrentData(currentMonthly)
         setPreviousData(previousMonthly)
+        setView('monthly')
     }
 
     return (    
@@ -48,9 +52,9 @@ const ProfileCard = () => {
                 </div>
 
                 <div className='bg-[hsl(235,46%,20%)] text-[hsl(235,45%,61%)] h-[90px] p-5 -mt-5 flex items-end justify-center rounded-xl sm:flex-col sm:items-start sm:h-[133px] sm:p-4'>
-                    <button className='px-2 mr-2 sm:mx-0 sm:py-1 sm:mt-6 hover:text-white transition' onClick={() => switchToDailyView()}>Daily</button>
-                    <button className='px-2 mx-3 sm:mx-0 sm:py-1 hover:text-white transition' onClick={() => switchToWeeklyView()}>Weekly</button>
-                    <button className='px-2 ml-2 sm:mx-0 sm:py-1 hover:text-white transition' onClick={() => switchToMonthlyView()}>Monthly</button>
+                    <button className={`px-2 mr-2 sm:mx-0 sm:py-1 sm:mt-6 hover:text-white transition ${view === 'daily' ? 'text-white' : ''}`} onClick={() => switchToDailyView()}>Daily</button>
+                    <button className={`px-2 mx-3 sm:mx-0 sm:py-1 hover:text-white transition ${view === 'weekly' ? 'text-white' : ''}`} onClick={() => switchToWeeklyView()}>Weekly</button>
+                    <button className={`px-2 ml-2 sm:mx-0 sm:py-1 hover:text-white transition ${view === 'monthly' ? 'text-white' : ''}`} onClick={() => switchToMonthlyView()}>Monthly</button>
                 </div>
             </div>
             <Cards data={[currentData, previousData]}></Cards>
